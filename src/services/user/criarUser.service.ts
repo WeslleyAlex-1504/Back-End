@@ -15,7 +15,7 @@ export const createUserService=async(userData:CreateUser):Promise<returnUser>=>{
         
     })
     if(findUser){
-        throw new AppError("e-mail já cadastrado",409)
+        throw new AppError("usuario já existe",409)
     }
     console.log(userData,"dentro do ser")
     const salt =  bcrypt.genSaltSync(10);
