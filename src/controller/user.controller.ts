@@ -9,3 +9,7 @@ export const createUserController = async (req:Request,res:Response):Promise<Res
     const user:returnUser = await createUserService(userData)
     return  res.status(201).json(user)
 }
+
+export const retrieveUserController = async (req:Request,res:Response):Promise<Response> => {
+    return res.status(200).json(req.user)
+}
