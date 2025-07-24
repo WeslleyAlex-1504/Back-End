@@ -6,6 +6,7 @@ import { createProdutoController, deleteProdutoController, getAllProdutosControl
 export const produtosRoutes:Router = Router()
 
 produtosRoutes.get("", getAllProdutosController)
+
 produtosRoutes.post("",validateDataMiddleware(produtoSchema), createProdutoController)
 produtosRoutes.patch("/:id", validateDataMiddleware(updateProdutoSchema), updateProdutoController)
 produtosRoutes.delete("/:id", deleteProdutoController)
