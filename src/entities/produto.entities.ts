@@ -14,4 +14,7 @@ export class Produtos {
     @Column({type: "int"})
     preco: number
 
+    @Column()
+    url: string
+
 }

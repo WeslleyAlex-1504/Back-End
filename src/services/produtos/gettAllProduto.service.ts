@@ -9,7 +9,7 @@ export const getAllProdutosServices = async (name:string|any) => {
         const produtos = await produtosRepository.find(
             {
                 where:{
-                    nome:Like(name)
+                    nome:Like(`${name}%`)
                 }
             }
         )
