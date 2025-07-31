@@ -15,8 +15,6 @@ export const atualizarVendaService = async (produto:number, body:iUpdateVenda) =
          if(!FindVenda){
              throw new AppError("venda nao encontrado",404)
          }
-     
-         const novo = {...FindVenda,...body}
 
          const vendaUpdate:venda = vendaRepository.create({...FindVenda,...body,});
          await vendaRepository.save(vendaUpdate)

@@ -12,7 +12,9 @@ export const criarVendaController = async (req:Request,res:Response):Promise<Res
 }
 
 export const pegarTodasVendasController = async (req:Request,res:Response):Promise<Response> => {
-    const vendaReturn = await pegarVendaService()
+    const nomeDoProduto = req.query.nomeDoProduto as string
+    const data = req.query.data as string
+    const vendaReturn = await pegarVendaService(nomeDoProduto,data)
     return  res.status(200).json(vendaReturn)
 }
 

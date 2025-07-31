@@ -23,6 +23,7 @@ export const vendasReturnSchema = z.object({
     Produto: returnProdutoSchema.omit({ url: true })
 })
 
+export const updateVendaSchema = vendaSchema.partial()
 export const vendasArraySchema = vendasReturnSchema.array()
 
 export type venda = z.infer<typeof vendaSchema>
