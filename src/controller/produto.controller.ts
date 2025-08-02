@@ -13,7 +13,8 @@ export const createProdutoController = async (req:Request,res:Response):Promise<
 
 export const getAllProdutosController = async (req:Request,res:Response):Promise<Response> => {
     const name = req.query.name
-    const produto:returnAllProduto=  await getAllProdutosServices(name)
+    const inativo = req.query.inativo
+    const produto:returnAllProduto=  await getAllProdutosServices(name,inativo)
     return res.status(200).json(produto)
 }
 

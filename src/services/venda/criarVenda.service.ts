@@ -11,7 +11,7 @@ export const criarVendaService = async (venda:venda) => {
 
      const FindProduto:Produtos|null =await produtoRepository.findOne({
              where: {
-                 id: venda.produtoId
+                 nome: venda.sabor
              }
          })
          if(!FindProduto){
@@ -22,6 +22,7 @@ export const criarVendaService = async (venda:venda) => {
     const vendaCriado = vendaRepository.create({
     quantidade: venda.quantidade,
     lucro: venda.lucro,
+    sabor: venda.sabor,
     Produto: FindProduto,
      })
      await vendaRepository.save(vendaCriado)

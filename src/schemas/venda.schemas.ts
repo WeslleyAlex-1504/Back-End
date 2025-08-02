@@ -6,19 +6,20 @@ import { returnProdutoSchema } from "./produto.schemas";
 export const vendaSchema = z.object ({
     quantidade: z.number(),
     lucro: z.number(),
-    produtoId: z.number()
+    sabor: z.string()
 })
 
 export const vendaReturnSchema = z.object ({
     quantidade: z.number(),
     lucro: z.number(),
+    sabor: z.string(),
     Produto: returnProdutoSchema.omit({ url: true })
 })
 
 export const vendasReturnSchema = z.object({
     quantidade: z.number(),
     lucro: z.number(),
-    produtoId: z.number(),
+    sabor: z.string(),
     id: z.number(),
     Produto: returnProdutoSchema.omit({ url: true })
 })

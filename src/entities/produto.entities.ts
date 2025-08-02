@@ -5,7 +5,7 @@ export class Produtos {
     @PrimaryGeneratedColumn("increment")
     id: number
 
-    @Column()
+    @Column({ unique: true })
     nome: string
 
     @Column()
@@ -16,5 +16,8 @@ export class Produtos {
 
     @Column()
     url: string
+
+    @Column()
+    ativo: boolean   
 
 }

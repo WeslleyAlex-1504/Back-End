@@ -18,6 +18,6 @@ export class Vendas {
     @ManyToOne(()=> Produtos, { eager: true })
     Produto:Produtos
     
-    @Column({type: "int"})
-    produtoId: number;
+    @Column()
+    sabor: string;
 }
