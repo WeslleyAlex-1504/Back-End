@@ -10,9 +10,11 @@ export const vendaSchema = z.object ({
 })
 
 export const vendaReturnSchema = z.object ({
+    id: z.number(),
     quantidade: z.number(),
     lucro: z.number(),
     sabor: z.string(),
+    data_venda: z.string(),
     Produto: returnProdutoSchema.omit({ url: true })
 })
 
@@ -21,6 +23,7 @@ export const vendasReturnSchema = z.object({
     lucro: z.number(),
     sabor: z.string(),
     id: z.number(),
+    data_venda: z.date(),
     Produto: returnProdutoSchema.omit({ url: true })
 })
 

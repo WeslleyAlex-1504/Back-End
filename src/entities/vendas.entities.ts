@@ -12,7 +12,7 @@ export class Vendas {
     @Column({type: "int"})
     lucro: number
 
-    @CreateDateColumn({type:"date"})
+    @CreateDateColumn({type:"timestamp"})
     data_venda: string
 
     @ManyToOne(()=> Produtos, { eager: true })

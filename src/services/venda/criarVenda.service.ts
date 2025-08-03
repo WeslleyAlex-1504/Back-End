@@ -27,6 +27,6 @@ export const criarVendaService = async (venda:venda) => {
      })
      await vendaRepository.save(vendaCriado)
 
-     const vendaFinal = vendaReturnSchema.parse(vendaCriado)
+     const vendaFinal = vendaSchema.parse(vendaCriado)
      return vendaFinal
 }
