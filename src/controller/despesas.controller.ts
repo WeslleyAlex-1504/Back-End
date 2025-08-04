@@ -1,3 +1,4 @@
+import { loginAdmin } from './login.controller';
 import { Request, Response } from "express";
 import { returnDespesa } from "../schemas/despesa.schema";
 import { criarDespesaService } from "../services/despesas/criarDespesa.service";
@@ -13,9 +14,11 @@ export const criarDespesaController = async (req:Request,res:Response):Promise<R
 
 export const pegarTodasDespesaController = async (req:Request,res:Response):Promise<Response> => {
     const name = req.query.name as string
-    const ano1 = parseInt(req.query.ano as string);
-    const mes1 = req.query.mes as string
-    const despesas = await pegarDespesaService(name,ano1,mes1)
+    const ano1 = Number(req.query.ano1);
+    const offset = Number(req.query.offset);
+    const limite = Number(req.query.limite);
+    const mes1 = req.query.mes1 as string
+    const despesas = await pegarDespesaService(name,ano1,mes1,limite,offset)
     return res.status(200).json(despesas)
 }
 

@@ -15,7 +15,8 @@ export const pegarTodasVendasController = async (req:Request,res:Response):Promi
     const nomeDoProduto = req.query.nomeDoProduto as string
     const data = req.query.data as string
     const offset = Number(req.query.offset) 
-    const vendaReturn = await pegarVendaService(nomeDoProduto,data,offset)
+    const limit = Number(req.query.limit) 
+    const vendaReturn = await pegarVendaService(nomeDoProduto,data,offset,limit)
     return  res.status(200).json(vendaReturn)
 }
 
@@ -29,5 +30,5 @@ export const atualizarVendaController = async (req:Request,res:Response):Promise
     const data = req.body
     const { id } = req.params
     const venda = await atualizarVendaService(parseInt(id),data)
-    return  res.status(200).send("Produto Atualizado")
+    return  res.status(200).send("Venda Atualizado")
 }

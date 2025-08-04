@@ -4,7 +4,7 @@ import { Vendas } from "../../entities/vendas.entities"
 import { vendasArraySchema } from "../../schemas/venda.schemas"
 
 
-export const pegarVendaService = async (nomeProduto:string,data:string,offset:number) => {
+export const pegarVendaService = async (nomeProduto:string,data:string,offset:number,limit:number) => {
      const vendaRepository: Repository<Vendas> = AppDataSource.getRepository(Vendas)
 
      
@@ -39,7 +39,7 @@ const dataFim = new Date(year, month - 1, day, 23, 59, 59, 999);
     
 
     const vendas = await vendaRepository.find({
-    take:8,
+    take:limit,
     skip:offset
     })
     const vendasFinal = vendasArraySchema.parse(vendas)
